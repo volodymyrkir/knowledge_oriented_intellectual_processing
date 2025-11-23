@@ -4,11 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-scikit-fuzzy = "*"
-pandas = "*"
-numpy = "*"
-matplotlib = "*"
 scipy = "*"
+numpy = "*"
+pandas = "*"
+scikit-learn = "*"
+matplotlib = "*"
+tensorflow = "*"
+scikit-fuzzy = "*"
+networkx = "*"
+torch = "*"
 
 [dev-packages]
 
