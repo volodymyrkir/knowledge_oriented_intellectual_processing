@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
 class PSO:
     def __init__(self, func, dim, n_particles=30, iters=100,
                  w=0.7, c1=1.5, c2=1.5, bounds=None):
@@ -66,14 +67,12 @@ class PSO:
         return self.gbest_pos, self.gbest_cost
 
 
-# Тестова функція Растригина
 def rastrigin(x):
     A = 10
     x = np.asarray(x)
     return A * x.size + np.sum(x**2 - A * np.cos(2 * np.pi * x))
 
 
-# Параметри PSO
 dim = 2
 pso = PSO(
     func=rastrigin,
@@ -92,7 +91,6 @@ print("Best position:", best_pos)
 print("Best cost:", best_cost)
 
 
-# Графік збіжності
 plt.figure(figsize=(8, 4))
 plt.plot(pso.gbest_history, linewidth=2)
 plt.title("Convergence of PSO")
@@ -102,7 +100,6 @@ plt.grid(True)
 plt.show()
 
 
-# Контурна карта функції + траєкторії частинок
 x = np.linspace(-5.12, 5.12, 200)
 y = np.linspace(-5.12, 5.12, 200)
 X, Y = np.meshgrid(x, y)
@@ -125,7 +122,6 @@ plt.ylabel("x2")
 plt.show()
 
 
-# Друк фінальних результатів
 final_positions = pso.trajectories[-1]
 final_costs = np.array([rastrigin(p) for p in final_positions])
 
